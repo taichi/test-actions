@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    tags: release/batch/*
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - run: echo ${{ github.ref }}
