@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - uses: actions/checkout@v1
-    - name: Get version
+    - name: Get version form refs
       id: version
       run: |
         version=$(echo ${{ github.ref }} | sed 's/refs.*\///g')
         echo "::set-output name=version::$version"
     - run: echo ${{ steps.version.outputs.version }}
+    - run: git push --delete origin ${{ github.ref }}
