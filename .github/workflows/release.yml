@@ -1,0 +1,10 @@
+on:
+  pull_request:
+    types: [ labeled ]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    step:
+      run: echo $GITHUB_SHA
+      run: echo $GITHUB_REF
+      run: echo ${{ toJSON(github.event) }}
