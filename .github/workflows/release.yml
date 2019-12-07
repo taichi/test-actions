@@ -10,10 +10,11 @@ jobs:
       - run: echo $GITHUB_REF
       - run: |
           mkdir -p artifact
-          echo "${{ toJSON(github.event) }}" > artifact/event.json
+          cp $GITHUB_EVENT_PATH arifact/event.json
+          
       - uses: actions/upload-artifact@v1
         with:
-          name: event.json
+          name: json
           path: artifact
           
     
