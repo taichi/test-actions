@@ -8,4 +8,12 @@ jobs:
     steps:
       - run: echo $GITHUB_SHA
       - run: echo $GITHUB_REF
-      - run: echo "${{ toJSON(github.event) }}"
+      - run: |
+          mkdir -p artifact
+          echo "${{ toJSON(github.event) }}" > artifact/event.json
+      - uses: actions/upload-artifact@v1
+        with:
+          name: event.json
+          path: artifact
+          
+    
