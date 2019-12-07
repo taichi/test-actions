@@ -10,7 +10,7 @@ jobs:
       - run: echo $GITHUB_REF
       - run: |
           mkdir -p artifact
-          cp $GITHUB_EVENT_PATH arifact/event.json
+          cp $GITHUB_EVENT_PATH artifact/event.json
           
       - uses: actions/upload-artifact@v1
         with:
