@@ -16,7 +16,7 @@ jobs:
         with:
           name: json
           path: artifact
-      - uses: taichi/approved-event-action@v1.0.0
+      - uses: taichi/approved-event-action@master
         id: approved
       - run: echo "Approved !!"
         if: steps.approved.outputs.approved == 'true'
