@@ -16,5 +16,10 @@ jobs:
         with:
           name: json
           path: artifact
-          
+      - uses: taichi/approved-event-action@v1
+        id: approved
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: echo "Approved !!"
+        if: approved.outputs.approved == 'true'
     
